@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { HiOutlineSparkles } from "react-icons/hi";
 import { BsArrowRight } from "react-icons/bs";
@@ -8,6 +8,18 @@ import { Card, CardHeader, CardContent } from "@/components/ui/card";
 
 export default function App() {
   const [showVideo, setShowVideo] = useState(false);
+
+  useEffect(() => {
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "video";
+    link.href = "https://r2.keircn.com/11i28mz8(1).mp4";
+    document.head.appendChild(link);
+
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -133,9 +145,7 @@ export default function App() {
           transition={{ delay: 1 }}
           className="mt-24 text-center text-gray-400"
         >
-          <p>
-            Limited invites available, don't miss out.
-          </p>
+          <p>Limited invites available, don't miss out.</p>
           <p className="mt-4 text-zinc-50">
             Made with <span role="img">♡</span> by{" "}
             <a
