@@ -6,7 +6,7 @@ export default function VideoPlayer() {
   useEffect(() => {
     const video = document.createElement("video");
     video.preload = "auto";
-    video.src = "https://r2.keircn.com/11i28mz8(1).mp4";
+    video.src = "https://r2.keircn.com/nggyu.mp4";
 
     video.addEventListener("canplaythrough", () => {
       setIsLoaded(true);
